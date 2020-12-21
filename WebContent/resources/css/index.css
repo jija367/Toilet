@@ -1,0 +1,236 @@
+/* 占쎄퐬�뜮袁㏃쓺占쎌뵠占쎄숲 燁살눖�뵬 癰귨옙野껓옙 */
+#fp-nav ul li a span { 
+    background-color:white;
+}
+/* section 01 */
+body {
+    margin:0 auto;
+    width: 100%;
+    height: 100%;
+    font-family: 'Courier New', Courier, monospace;
+}
+/* 占쎄땔占쎄땔 */
+input[id="menuicon"] {
+    display:none;
+}
+input[id="menuicon"] + label {
+    display:block;
+    width:5%;
+    height:8%;
+    position:fixed;
+    right:5%;
+    top:5%;
+    transition:all .35s; 
+    cursor:pointer;
+}
+input[id="menuicon"] + label span {
+    display: block;
+    position:absolute;
+    width:100%;
+    height:17%;
+    border-radius:15%;
+    background:rgb(56, 56, 56);
+    transition:all .35s;
+}
+input[id="menuicon"] + label span:nth-child(1) {
+    top:0;
+}
+input[id="menuicon"] + label span:nth-child(2) {
+    top:50%;
+    transform:translateY(-50%);
+}
+input[id="menuicon"] + label span:nth-child(3) {
+    bottom:0;
+}
+input[id="menuicon"]:checked + label span:nth-child(1) {
+    top:50%;
+    transform:translateY(-50%) rotate(45deg);
+}
+input[id="menuicon"]:checked + label span:nth-child(2) {
+    opacity: 0;
+}
+input[id="menuicon"]:checked + label span:nth-child(3) {
+    bottom:50%;
+    transform:translateY(50%) rotate(-45deg);
+} 
+div[class="sidebar"] {
+    width:23%;
+    height:100%;
+    background:white;
+    position:fixed;
+    top:0;
+    right:-50%;
+    z-index:1;
+    transition:all .35s;
+}
+input[id="menuicon"]:checked + label + div {
+    right:0;
+}
+input[id="menuicon"]:checked + label {
+    z-index:2;
+    right:23%;
+}
+.sidebar > #image {
+    margin:15%;
+    width:70%;
+    height:20%;
+}
+.sidebar > h1 {
+    text-align: center;
+    margin-top:-5%;
+    color:black;
+}
+.sidebar > #h1_2 {
+	text-align: center;
+    margin-top:-10%;
+    margin-bottom:5%;
+    color:black;
+}
+.sidebar table {
+    margin-left: 10%;
+}
+.sidebar td {
+    color:black;
+    padding-bottom: 5%;
+}
+.sidebar > form > #btn1 {
+    margin-top:5%;
+    margin-left: 15%;
+    width: 30%; height: 55px;
+}
+.sidebar > form > #btn2 {
+    margin-top:5%;
+    margin-left:5%;
+    color: ivory;
+    background-color: rgb(74, 211, 188);
+    border:1px solid rgb(63, 180, 176);
+    /* background-color:rgb(49, 191, 238);
+    border: 1px solid rgb(63, 180, 176); */
+    width: 30%; height: 55px;
+}
+.sidebar>form>#btn3 {
+	margin-top: 5%;
+	margin-left: 15%;
+	width: 30%;
+	height: 55px;
+	color: ivory;
+	background-color: darkturquoise;
+	border: 1px solid rgb(63, 180, 176);
+}
+
+.sidebar>form>#btn4 {
+	margin-top: 5%;
+	margin-left: 5%;
+	width: 30%;
+	height: 55px;
+}
+#message1 {
+    font-size:3.7em;
+    font-weight: 800;
+    color:white;
+    margin-top:5%;
+    margin-left:30%;
+}
+/* 野껓옙占쎄퉳筌∽옙 */
+#search {
+    margin-top:1%;
+    margin-left:30%;
+    margin-right:1%;
+    padding-top:1%;
+    padding-bottom:1%;
+    padding-left:2%;
+    padding-right:1%;
+    border:white solid 1px;
+    border-radius: 35px;
+    font-size:2em;
+    width:40%; height:8%;
+}
+#search:focus {outline:none;}
+#magnifier:focus {outline:none;}
+#current-location-btn:focus{outline:none;}
+/* 占쎈뮞占쎄쾿嚥∽옙 */
+#scroll{
+    margin-left: 55%;
+    margin-top: 2%;
+}
+.pagedown > #down {
+    margin-top: 20%;
+    margin-left:45%;
+}
+.updown {
+    position:absolute;
+    left:47%;
+    /* 占쎈막占쎈빍筌롫뗄�뵠占쎈�� 占쎌뵠�뵳占� */
+    animation-name: scroll;
+    animation-duration:1s;
+    animation-duration: leaner;
+    animation-iteration-count:infinite;
+    animation-direction:alternate;
+    animation-fill-mode: forwards;
+}
+/* 占쎄텕占쎈늄占쎌쟿占쎌뿫 占쎌뵠�뵳占� = 占쎈막占쎈빍筌롫뗄�뵠占쎈�� 占쎌뵠�뵳占� */
+@keyframes scroll {
+    0% {
+      top:85%;
+    }
+    100% {
+      top:90%;
+    }
+  }
+#scrollplz {
+    margin-left:50%;
+}
+/* section 02 */
+.section{
+    color: white;
+}
+.s1 table{
+    width: 85%;
+    margin-top: 2%;
+    margin-left: 7%;
+    border-collapse: separate;
+    border-spacing: 1.5em 1.5em;    
+    font-size: 1.2em;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.s1 td {
+    width:17%; 
+    height: 5%;
+    background-color:ghostwhite;
+    border-radius: 35px;
+    color: black;
+    text-align: center;
+    padding-left: 0.2%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    cursor:pointer;
+    font-size: 1.2em;
+    box-shadow:5px 5px slateblue;
+}
+.s1 td:hover {
+    background-color: rgb(255, 220, 107);
+    color: slateblue;
+}
+/* sectoin 03 */
+.s2 {
+    padding-left: 15%;
+    /* display: inline-block; */
+}
+.s2 h2 {
+    font-size:2.5em;
+    font-weight: 800;
+    color: black !important;
+}.s2 p {
+    font-size:1.2em;
+    color: black !important;
+}
+.footer-content{
+    height:60%;
+    float: left;
+    margin-right: 15%;
+    border-right: 5px solid white;
+    padding-top:5%;
+    padding-right:14%;
+}
+
+

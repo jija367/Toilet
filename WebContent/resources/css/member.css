@@ -1,0 +1,62 @@
+body {
+    margin:0 auto;
+    width: 100%;
+    height: 100%;
+    background-color:mintcream;
+}
+/* header */
+.logos {
+    margin-top: 3%;
+    margin-left:42%;
+    margin-bottom:3%;
+}
+#logo1 {
+    width:20%;
+}
+#logo2 {
+    margin-top: -4%;
+    width:10%;
+}
+/* form */ 
+.form {
+    margin-left: 37%;
+}
+span {
+	margin-top:2%;
+	font-size:1.2em;
+	font-weight: 1000;
+}
+#idcheck {
+    margin-left: 31%;
+    margin-bottom: 0.1%;
+    font-size:1em;
+}
+input[type="text"],input[type="password"],input[type="email"],input[type="tel"] {
+    width:44%;
+    height:50px;
+    padding-left: 1%;
+}
+.form > p {
+    margin-top:2%;
+    margin-bottom:-0.1%;
+    font-size:1.2em;
+    font-weight: 1000;
+}
+input[type="reset"],input[type="submit"] {
+    margin:2%;
+    padding:1%;
+    width:12%;
+    font-size: 1em;
+}
+.btns {
+    margin-left: 7%;
+}
+input[type="reset"],input[type="submit"] {
+	border:1px solid grey;
+    background-color: rgb(218, 253, 218);
+}
+/* footer */
+footer {
+    margin-top:1%;
+    margin-left: 41%;
+}

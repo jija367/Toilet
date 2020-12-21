@@ -1,0 +1,68 @@
+body{
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    background:rgb(243, 240, 255) !important;
+    font-family:'Courier New', Courier, monospace;
+    }
+#logo1{
+    margin-top: 5%;
+    margin-left: 5%;
+    cursor: pointer;
+}
+h1{
+    text-align: center;
+    margin:3% 0% 3% 0%;
+    padding-bottom: 2%;
+    font-size: 2em;
+}
+hr{
+    width: 65%;
+    margin-bottom: 1%;
+
+}
+.star{
+	font-size: 1.3em;
+	cursor: pointer;
+}
+
+
+#update-comment{
+    margin: 2% 15%;
+}
+#update-comment-table{
+    margin-left: 10%;
+    font-size: 1.4em;
+}
+#choose-profile-img{
+width: 80%;
+margin-bottom: 3%;
+display: flex;
+flex-direction: row;
+}
+label img{
+    width: 60%;
+    border-radius: 50%;
+}
+#choose{
+    width: 20%;
+}
+td>#write-button{
+    width: 30%; height: 30%;
+    margin: 3% 0% 3% 62%;
+    font-size: 1em;
+    background: rgb(206, 243, 242);
+    border: 1px solid rgb(170, 173, 173) ;
+}
+#tr{
+    margin-bottom: 5%;
+}
+
+
+td>textarea{
+    margin-top: 5%;
+}
+
+#copyright{
+    margin: 4% 0% 2% 35%;
+}

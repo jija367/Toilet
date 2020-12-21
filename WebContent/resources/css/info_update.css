@@ -1,0 +1,80 @@
+body {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    background: rgb(243, 240, 255);
+    font-family: 'Courier New', Courier, monospace;
+ }
+ 
+ .logos {
+    margin-top:3%;
+    margin-left: 3%;
+ }
+ 
+ #logo1 {
+    width: 12%;
+ }
+ 
+ #logo2 {
+    width: 6%;
+    margin-top:-1%;
+ }
+ 
+ h1 {
+    text-align: center;
+    margin: 2% 0%;
+ }
+ 
+ hr {
+    width: 65%;
+    margin-bottom: 1%;
+ }
+ 
+ #update-info-table{
+     text-align: left;
+     margin-left: 36%;
+ }
+ #update-info{
+     margin-bottom: 2%;
+ }
+ #my-name,#my-id,#my-pw,#my-pw-check,#my-email,#my-tel{
+    width:100%;
+     margin-left: -10%;
+     padding: 2% 10%;
+     font-size: 1em;
+ }
+ #update_name,#update_id,#update_pw,#update_pw-check,#update_email,#update_tel{
+     font-size: 1.2em;
+     width: 60%;
+     text-align: left;
+ }
+ td{
+     padding-top: 3%;
+ }
+ 
+ #btns {
+    margin: 1% 0% 5% 34%;
+ }
+ 
+ input[type="submit"] {
+    margin: 1.6% 0% 1.6% 25%;
+     width: 23%;
+     padding: 0.5% 0.5%;
+     font-size: 1em;
+     background: rgb(206, 243, 242);
+     border: 1px solid rgb(170, 173, 173) ;
+ }
+ 
+ input[type="button"] {
+    margin: 1.6% 0% 1.6% 1.6%;
+    width: 23%;
+    padding: 0.5% 0.5%;
+    font-size: 1em;
+    background: white;
+    border: 1px solid rgb(170, 173, 173) ;
+ }
+ 
+ #copyright {
+    text-align: center;
+    margin: 2% 0%;
+ }

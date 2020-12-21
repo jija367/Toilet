@@ -1,0 +1,135 @@
+body{
+    margin: 0 auto;
+    width:100%; height:100%;
+    font-family:'Courier New', Courier, monospace !important;
+    background-color: mintcream !important;
+}
+/* logo */
+.logos {
+    margin-left:4%;
+}
+#logo1 {
+    width:18%;
+}
+#logo2 {
+    margin-top: -2%;
+    width:7%;
+}
+/* search */
+#search{
+    width:40%; height:10%;
+    border:3px solid rgb(54, 206, 193);
+    border-radius: 35px;
+    font-size:2em;
+    padding:1%;
+    padding-left:2%;
+    margin-top:2%;
+    margin-left:30%;
+    margin-right:1%;
+}
+#search:focus {
+    outline:none;
+} 
+#magnifier {
+    width:4%;
+    height:4%;
+    margin-top:-0.5%;
+    cursor: pointer;
+}
+/* local list */
+#locallist{
+    margin-top:3%;
+    float:right;
+    font-size:2em;
+}
+#man-woman {
+    width:4%; height:4%;
+}
+/* checkbox */
+.checkbox-container {
+    margin-top:5%;
+    margin-left:20%;
+    padding-bottom:1%;
+}
+input[id="check01"]+label,input[id="check02"]+label,input[id="check03"]+label{
+    display: block;
+    margin: 0.2em;
+    cursor: pointer;
+    padding:0.2em;
+}
+input[id="check01"],input[id="check02"],input[id="check03"]{
+    display: none;
+}
+input[id="check01"]+label::before,input[id="check02"]+label::before,input[id="check03"]+label::before{
+    content: "\2714";
+    border: 0.1em solid #000;
+    display: inline-block;
+    width: 2em; height: 2em;
+    border-radius: 0.2em;
+    padding-left: 0.2em;
+    padding-bottom: 0.3em;
+    margin-right: 0.2em;
+    vertical-align: bottom;
+    color: transparent;
+    background-color: white;
+}
+input[id="check01"]:checked + label:before,input[id="check02"]:checked + label:before,input[id="check03"]:checked + label:before{
+    background-color: mediumturquoise;
+    border-color:mediumturquoise ;
+    color: mintcream;
+    transition: .2s;
+}
+
+input[id="check01"]+label:active:before,input[id="check02"]+label:active:before,input[id="check03"] + label:active:before{
+    transform: scale(0);
+}
+#btnc {
+	width:25%; height:40px;
+	background-color:rgb(241, 240, 240);
+	border:1px solid rgb(128, 128, 128);
+	border-radius:5px;
+	font-weight:600;
+}
+.dashline {
+	width:60%;
+	margin-left:20%;
+	padding-bottom:1%;
+	border-bottom:3px dashed grey;
+}
+#btnc:focus {
+	outline:none;
+}
+/* */
+#underline { 
+	text-decoration:none; 
+}
+ 
+.addr {
+    border: 2px solid whitesmoke;
+    margin-top: 1%;
+    margin-left:20%;
+    margin-bottom: 1%;
+    width: 60%; height: 30%;
+    background-color:rgb(101, 219, 215);
+    padding:20px 20px ;
+    color:rgb(41, 41, 41);
+}
+#addr1 {
+    font-weight: bolder;
+    font-size: 1.4em;
+}
+#good {
+    color:oldlace;
+}
+/* footer */
+.footer {
+    border: 2px solid whitesmoke;
+    margin-top: 3%;
+    width: 100%; height: 30%;
+    background-color:rgb(207, 207, 207);
+    padding:3%;
+    text-align: center;
+}
+.footer p:nth-child(1) {
+    font-size: 1.1em;
+}

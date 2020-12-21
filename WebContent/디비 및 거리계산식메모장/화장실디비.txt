@@ -1,0 +1,184 @@
+detail.jsp -> 
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMI3gt8utOUQfXBOpclwO7r0gAGeBkp5Q&callback=initMap&region=kr"
+        async defer></script>
+
+스크립트 복붙(구글맵 키 수정함)
+
+구글맵 키:
+AIzaSyDMI3gt8utOUQfXBOpclwO7r0gAGeBkp5Q
+
+
+******************************
+
+거리 구하는 식:
+
+SELECT *
+FROM (
+SELECT 출력할 값 , (6371 * acos( cos( radians( 내위치위도 ) ) * cos( radians( 상대방위도) ) * cos( radians( 상대방경도) - radians(내위치경도)) 
++ sin( radians(내위치위도) ) * sin( radians(위도) ) ) ) AS distance
+FROM tiolet
+) DATA
+WHERE DATA.distance < 3(범위-km단위)
+
+
+
+(6371 * acos( cos( radians( 현재위치위도 ) ) * cos( radians( 위도) ) * cos( radians( 경도) - radians(현재위치경도)) 
+
++ sin( radians(현재위치위도) ) * sin( radians(위도) ) ) ) AS distance
+
+**************************************
+
+oracle에는 RADIANS 함수가 지원되지 않아 임의로 만든 것(위도 경도로 거리 계산시 필요한 함수)
+CREATE OR REPLACE FUNCTION RADIANS(nDegrees IN NUMBER) 
+RETURN NUMBER DETERMINISTIC 
+IS
+BEGIN
+  /*
+  -- radians = degrees / (180 / pi)
+  -- RETURN nDegrees / (180 / ACOS(-1)); but 180/pi is a constant, so...
+  */
+  RETURN nDegrees / 57.29577951308232087679815481410517033235;
+END RADIANS;
+ 
+
+****************************
+
+매퍼에 쓸 쿼리문
+SELECT *
+FROM (
+SELECT t_name, ( 6371 * acos( cos( radians( 37.611679 ) ) * 
+cos( radians( t_la) ) * cos( radians( t_lo ) - radians(126.918110) ) +
+sin( radians(37.611679) ) * sin( radians(t_la) ) ) ) AS distance
+FROM toilet
+) DATA
+WHERE DATA.distance < 0.5 order by distance;
+
+**************************************
+
+
+* 테이블
+
+화장실데이터테이블(t_toilet)
+
+화장실번호(기본키) t_no
+화장실명         t_name not null
+소재지도로명주소      t_nm_name not null
+소재지지번주소      t_m_name 
+남녀공용화장실여부   t_mwm not null char(1) ->y 는 공용, n은 분리
+남성용대변기수      t_ml_number number
+남성용소변기수      t_ms_number number
+남성용장애인용대변기수   t_hml_number number
+남성용장애인용소변기수   t_hms_number number
+남성용어린이용대변기수   t_cml_number number
+남성용어린이용소변기수   t_cms_number number
+
+여성용대변기수      t_wml_number number
+여성용장애인용대변기수   t_hwml_number number
+여성용어린이용대변기수   t_hwms_number number
+관리기관명      t_manage not null 
+전화번호         t_tel 
+개방시간         t_close 
+위도         t_la 
+경도         t_lo 
+데이터기준일자      t_data
+제공기관코드      t_mcode
+제공기관명      t_service 
+좋아요점수     t_com_score  number
+댓글수 	t_user_count    number
+
+create table toilet(
+t_no number constraint t_pk primary key,
+t_name varchar2(100) not null,
+t_nm_name varchar2(100),
+t_m_name varchar2(100),
+t_mwm char(1) not null,
+t_ml_number number(38),
+t_ms_number number(38),
+t_hml_number number(38),
+t_hms_number number(38),
+t_cml_number number(38),
+t_cms_number number(38),
+t_wml_number number(38),
+
+t_hwml_number number(38),
+t_hwms_number number(38),
+t_manage varchar2(100) not null,
+t_tel varchar2(100),
+t_close varchar2(100),
+t_la number,
+t_lo number,
+t_data date,
+t_mcode number(38),
+t_service varchar2(100),
+t_com_score number,
+t_user_count number
+);
+
+****변경사항****
+
+t_com_score 열 추가
+alter table toilet add(t_com_score number);
+
+t_user_count
+alter table toilet add(t_user_count number);
+
+**********************************
+* 유저테이블(t_user)
+
+이름 t_user_name
+아이디 기본키 t_user_id
+비번 t_user_pw
+비번확인 t_user_pw2
+이메일 t_user_email
+연락처 t_user_tel
+
+create table t_user(
+t_user_name varchar2(20) not null,
+t_user_id varchar2(20) constraint u_pk primary key,
+t_user_pw varchar2(20) not null,
+t_user_pw2 varchar2(20),
+t_user_email varchar2(50),
+T_USER_EMAIL_HASHCODE VARCHAR2(100),
+T_USER_EMAIL_CHECKED  VARCHAR2(5) NOT NULL,
+t_user_tel varchar2(20) 
+);
+
+****변경사항****
+pw2 열 추가
+
+alter table t_user add(t_user_pw2 varchar2(20));
+
+
+
+
+
+
+
+
+
+**********************************
+* 후기테이블(t_comment)
+
+기본키(시퀀스) t_com_no
+프로필번호 t_com_profileimg
+아이디 외래 t_user_id
+화장실 외래 t_no
+별점 t_com_score
+코멘트 t_com_com
+작성일자 t_com_date
+
+create table t_comment(
+t_com_no number constraint c_pk primary key,
+t_com_profileimg char(1),
+t_user_id varchar2(10) constraint t_user_fk references t_user(t_user_id),
+t_no number constraint t_toilet_fk references toilet(t_no),
+t_com_score number not null,
+t_com_com varchar2(300) not null,
+t_com_date date );
+
+**********************************
+* 후기시퀀스(t_com_seq)
+
+create sequence t_com_seq increment by 1 start with 1 maxvalue 100000;
+
+
